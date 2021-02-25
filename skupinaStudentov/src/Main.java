@@ -15,5 +15,6 @@ public class Main {
         sk.vypisStudentov();
         sk.odoberStudenta("123");
         sk.vypisStudentov();
+        System.out.println(sk.getStudent("1001120"));
     }
 }

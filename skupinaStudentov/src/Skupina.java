@@ -37,4 +37,13 @@ public class Skupina {
             }
         }
     }
+
+    public Student getStudent(String osobneCislo) {
+        for (Student student : this.studenti) {
+            if (student.getOsobneCislo().equals(osobneCislo)) {
+                return student;
+            }
+        }
+        return null;
+    }
 }
