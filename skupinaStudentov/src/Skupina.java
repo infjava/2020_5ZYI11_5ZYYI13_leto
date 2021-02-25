@@ -17,4 +17,10 @@ public class Skupina {
     public void pridajStudenta(Student student) {
         this.studenti.add(student);
     }
+
+    public void vypisStudentov() {
+        for (Student student : this.studenti) {
+            System.out.println(student);
+        }
+    }
 }

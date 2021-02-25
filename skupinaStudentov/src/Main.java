@@ -10,5 +10,6 @@ public class Main {
         Student janko = new Student("1001120", "Jan", "Janech");
         Skupina sk = new Skupina("123");
         sk.pridajStudenta(janko);
+        sk.vypisStudentov();
     }
 }
