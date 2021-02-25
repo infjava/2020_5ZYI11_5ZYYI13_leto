@@ -13,5 +13,7 @@ public class Main {
         sk.pridajStudenta(janko);
         sk.pridajStudenta(jozko);
         sk.vypisStudentov();
+        sk.odoberStudenta("123");
+        sk.vypisStudentov();
     }
 }

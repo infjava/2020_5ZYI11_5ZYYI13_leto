@@ -28,4 +28,13 @@ public class Skupina {
             System.out.println(student);
         }
     }
+
+    public void odoberStudenta(String osobneCislo) {
+        for (Student student : this.studenti) {
+            if (student.getOsobneCislo().equals(osobneCislo)) {
+                this.studenti.remove(student);
+                return;
+            }
+        }
+    }
 }
