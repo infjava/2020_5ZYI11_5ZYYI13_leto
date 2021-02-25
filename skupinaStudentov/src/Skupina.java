@@ -7,7 +7,7 @@ import java.util.ArrayList;
  */
 public class Skupina {
     private final String cisloSkupiny;
-    private ArrayList<Student> studenti;
+    private final ArrayList<Student> studenti;
 
     public Skupina(String cisloSkupiny) {
         this.cisloSkupiny = cisloSkupiny;
