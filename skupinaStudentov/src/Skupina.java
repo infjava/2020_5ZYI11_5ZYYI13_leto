@@ -19,6 +19,7 @@ public class Skupina {
     }
 
     public void vypisStudentov() {
+        System.out.printf("Cislo skupiny je %s%n", this.cisloSkupiny);
         for (Student student : this.studenti) {
             System.out.println(student);
         }
