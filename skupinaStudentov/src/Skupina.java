@@ -14,6 +14,10 @@ public class Skupina {
         this.studenti = new ArrayList<>();
     }
 
+    public String getCisloSkupiny() {
+        return this.cisloSkupiny;
+    }
+
     public void pridajStudenta(Student student) {
         this.studenti.add(student);
     }
