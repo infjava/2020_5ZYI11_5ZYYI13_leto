@@ -24,6 +24,7 @@ public class Skupina {
 
     public void pridajStudenta(Student student) {
         if (this.getStudent(student.getOsobneCislo()) != null) {
+            System.err.println("Sorry, ale to ne. Uz taky student existuje.");
             return;
         }
 
