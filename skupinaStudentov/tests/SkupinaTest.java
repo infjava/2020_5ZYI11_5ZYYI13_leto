@@ -11,11 +11,13 @@ class SkupinaTest {
 
     private Skupina skupina;
     private Student jozkoMrkvicka;
+    private Student ferkoMrkvicka;
 
     @BeforeEach
     void setUp() {
         this.skupina = new Skupina("123");
         this.jozkoMrkvicka = new Student("123", "Jozko", "Mrkvicka");
+        this.ferkoMrkvicka = new Student("123", "Frantisek", "Mrkvicka");
     }
 
     @Test
@@ -53,5 +55,12 @@ class SkupinaTest {
 
         Student najdenyPoPridani = this.skupina.getStudent("123");
         Assertions.assertNotNull(najdenyPoPridani);
+    }
+
+    @Test
+    void pridajDvochStudentov() {
+        this.skupina.pridajStudenta(this.jozkoMrkvicka);
+        this.skupina.pridajStudenta(this.ferkoMrkvicka);
+        Assertions.assertEquals(1, this.skupina.getPocetStudentov());
     }
 }

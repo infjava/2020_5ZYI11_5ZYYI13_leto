@@ -18,7 +18,17 @@ public class Skupina {
         return this.cisloSkupiny;
     }
 
+    public int getPocetStudentov() {
+        return this.studenti.size();
+    }
+
     public void pridajStudenta(Student student) {
+        for (Student kontrolovany : this.studenti) {
+            if (kontrolovany.getOsobneCislo().equals(student.getOsobneCislo())) {
+                return;
+            }
+        }
+
         this.studenti.add(student);
     }
 
