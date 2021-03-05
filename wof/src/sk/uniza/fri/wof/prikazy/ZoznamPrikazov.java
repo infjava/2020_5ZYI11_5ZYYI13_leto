@@ -1,5 +1,9 @@
+package sk.uniza.fri.wof.prikazy;
+
+import sk.uniza.fri.wof.hra.Hrac;
+
 /**
- * Trieda ZoznamPrikazov udrzuje zoznam nazvov platnych prikazov hry.
+ * Trieda sk.uniza.fri.wof.prikazy.ZoznamPrikazov udrzuje zoznam nazvov platnych prikazov hry.
  * Za ulohu ma rozpoznavat platne prikazy a vykonavat ich.
  *
  * @author  Michael Kolling and David J. Barnes
@@ -37,7 +41,7 @@ public class ZoznamPrikazov {
      * @param hrac hrac ktory prikaz vykonava
      * @return true ak prikaz ukonci hru, inak vrati false.
      */
-    boolean vykonajPrikaz(Prikaz prikaz, Hrac hrac) {
+    public boolean vykonajPrikaz(Prikaz prikaz, Hrac hrac) {
         if (prikaz.jeNeznamy()) {
             System.out.println("Nerozumiem, co mas na mysli...");
             return false;
@@ -97,7 +101,7 @@ public class ZoznamPrikazov {
     /**
      * Ukonci hru.
      * Skotroluje cely prikaz a zisti, ci je naozaj koniec hry.
-     * Prikaz ukoncenia nema parameter.
+     * sk.uniza.fri.wof.prikazy.Prikaz ukoncenia nema parameter.
      *
      * @return true, ak prikaz konci hru, inak false.
      * @param prikaz prikaz, ktory sa vykonava

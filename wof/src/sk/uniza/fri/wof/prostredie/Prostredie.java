@@ -1,3 +1,5 @@
+package sk.uniza.fri.wof.prostredie;
+
 public class Prostredie {
     private final Miestnost startovaciaMiestnost;
 
