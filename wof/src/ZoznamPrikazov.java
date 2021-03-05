@@ -76,13 +76,10 @@ public class ZoznamPrikazov {
         String smer = prikaz.getParameter();
 
         // Pokus o opustenie aktualnej miestnosti danym vychodom.
-        Miestnost novaMiestnost = hra.getAktualnaMiestnost().getMiestnostVSmere(smer);
-
-        if (novaMiestnost == null) {
-            System.out.println("Tam nie je vychod!");
+        if (hra.getHrac().chodVSmere(smer)) {
+            hra.getHrac().vypisPopisAktualnejMiestnosti();
         } else {
-            hra.setAktualnaMiestnost(novaMiestnost);
-            novaMiestnost.vypisPopisMiestnosti();
+            System.out.println("Tam nie je vychod!");
         }
     }
 

@@ -21,14 +21,14 @@
 public class Hra  {
     private final Parser parser;
     private final ZoznamPrikazov zoznamPrikazov;
-    private Miestnost aktualnaMiestnost;
+    private final Hrac hrac;
 
     /**
      * Vytvori a inicializuje hru.
      */
     public Hra() {
         Prostredie prostredie = new Prostredie();
-        this.aktualnaMiestnost = prostredie.getStartovaciaMiestnost();
+        this.hrac = new Hrac(prostredie);
         this.zoznamPrikazov = new ZoznamPrikazov();
         this.parser = new Parser(this.zoznamPrikazov);
     }
@@ -63,14 +63,10 @@ public class Hra  {
         System.out.println("World of FRI je nova, neuveritelne nudna adventura.");
         System.out.println("Zadaj 'pomoc' ak potrebujes pomoc.");
         System.out.println();
-        this.aktualnaMiestnost.vypisPopisMiestnosti();
+        this.hrac.vypisPopisAktualnejMiestnosti();
     }
 
-    public Miestnost getAktualnaMiestnost() {
-        return this.aktualnaMiestnost;
-    }
-
-    public void setAktualnaMiestnost(Miestnost aktualnaMiestnost) {
-        this.aktualnaMiestnost = aktualnaMiestnost;
+    public Hrac getHrac() {
+        return this.hrac;
     }
 }
