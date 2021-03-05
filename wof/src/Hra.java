@@ -48,7 +48,7 @@ public class Hra  {
         
         do {
             Prikaz prikaz = this.parser.nacitajPrikaz();
-            jeKoniec = this.zoznamPrikazov.vykonajPrikaz(prikaz, this);
+            jeKoniec = this.zoznamPrikazov.vykonajPrikaz(prikaz, this.hrac);
         } while (!jeKoniec);
         
         System.out.println("Maj sa fajn!");
@@ -64,9 +64,5 @@ public class Hra  {
         System.out.println("Zadaj 'pomoc' ak potrebujes pomoc.");
         System.out.println();
         this.hrac.vypisPopisAktualnejMiestnosti();
-    }
-
-    public Hrac getHrac() {
-        return this.hrac;
     }
 }

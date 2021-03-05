@@ -34,10 +34,10 @@ public class ZoznamPrikazov {
      * Prevezne prikaz a vykona ho.
      *
      * @param prikaz prikaz, ktory ma byt vykonany.
-     * @param hra hra nad ktorou sa prikaz vykonava
+     * @param hrac hrac ktory prikaz vykonava
      * @return true ak prikaz ukonci hru, inak vrati false.
      */
-    boolean vykonajPrikaz(Prikaz prikaz, Hra hra) {
+    boolean vykonajPrikaz(Prikaz prikaz, Hrac hrac) {
         if (prikaz.jeNeznamy()) {
             System.out.println("Nerozumiem, co mas na mysli...");
             return false;
@@ -50,7 +50,7 @@ public class ZoznamPrikazov {
                 this.vypisNapovedu();
                 return false;
             case "chod":
-                this.chodDoMiestnosti(prikaz, hra);
+                this.chodDoMiestnosti(prikaz, hrac);
                 return false;
             case "ukonci":
                 return this.ukonciHru(prikaz);
@@ -64,9 +64,9 @@ public class ZoznamPrikazov {
      * Ak je tym smerom vychod, hrac prejde do novej miestnosti.
      * Inak sa vypise chybova sprava do terminaloveho okna.
      * @param prikaz prikaz na vykonanie
-     * @param hra hra nad ktorou sa prikaz vykonava
+     * @param hrac hrac ktory prikaz vykonava
      */
-    private void chodDoMiestnosti(Prikaz prikaz, Hra hra) {
+    private void chodDoMiestnosti(Prikaz prikaz, Hrac hrac) {
         if (!prikaz.maParameter()) {
             // ak prikaz nema parameter - druhe slovo - nevedno kam ist
             System.out.println("Chod kam?");
@@ -76,8 +76,8 @@ public class ZoznamPrikazov {
         String smer = prikaz.getParameter();
 
         // Pokus o opustenie aktualnej miestnosti danym vychodom.
-        if (hra.getHrac().chodVSmere(smer)) {
-            hra.getHrac().vypisPopisAktualnejMiestnosti();
+        if (hrac.chodVSmere(smer)) {
+            hrac.vypisPopisAktualnejMiestnosti();
         } else {
             System.out.println("Tam nie je vychod!");
         }
