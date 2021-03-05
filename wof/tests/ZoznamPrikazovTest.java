@@ -6,13 +6,13 @@ import org.junit.jupiter.api.Test;
  *
  * @author janik
  */
-public class NazvyPrikazovTest {
+public class ZoznamPrikazovTest {
 
-    private NazvyPrikazov nazvyPri1;
+    private ZoznamPrikazov nazvyPri1;
 
     @BeforeEach
     public void setUp() {
-        this.nazvyPri1 = new NazvyPrikazov();
+        this.nazvyPri1 = new ZoznamPrikazov();
     }
 
     @Test

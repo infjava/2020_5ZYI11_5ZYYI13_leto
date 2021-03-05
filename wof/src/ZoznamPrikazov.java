@@ -1,0 +1,116 @@
+/**
+ * Trieda ZoznamPrikazov udrzuje zoznam nazvov platnych prikazov hry.
+ * Za ulohu ma rozpoznavat platne prikazy a vykonavat ich.
+ *
+ * @author  Michael Kolling and David J. Barnes
+ * @version 2006.03.30
+ * @author  lokalizacia: Lubomir Sadlon, Jan Janech
+ * @version 2012.02.21
+ */
+
+public class ZoznamPrikazov {
+    // konstantne pole nazvov prikazov
+    private static final String[] PLATNE_PRIKAZY = {
+        "chod", "ukonci", "pomoc"
+    };
+
+    /**
+     * Kontroluje, ci nazov v parametri je platny prikaz.
+     *  
+     * @return true ak je parameter platny prikaz,
+     * false inak.
+     */
+    public boolean jePrikaz(String nazov) {
+        for (int i = 0; i < ZoznamPrikazov.PLATNE_PRIKAZY.length; i++) {
+            if (ZoznamPrikazov.PLATNE_PRIKAZY[i].equals(nazov)) {
+                return true;
+            }
+        }
+        // ak algoritmus dosiahne tento bod, parameter nie je platny prikaz
+        return false;
+    }
+
+    /**
+     * Prevezne prikaz a vykona ho.
+     *
+     * @param prikaz prikaz, ktory ma byt vykonany.
+     * @param hra
+     * @return true ak prikaz ukonci hru, inak vrati false.
+     */
+    boolean vykonajPrikaz(Prikaz prikaz, Hra hra) {
+        if (prikaz.jeNeznamy()) {
+            System.out.println("Nerozumiem, co mas na mysli...");
+            return false;
+        }
+
+        String nazovPrikazu = prikaz.getNazov();
+
+        switch (nazovPrikazu) {
+            case "pomoc":
+                this.vypisNapovedu();
+                return false;
+            case "chod":
+                this.chodDoMiestnosti(prikaz, hra);
+                return false;
+            case "ukonci":
+                return this.ukonciHru(prikaz);
+            default:
+                return false;
+        }
+    }
+
+    /**
+     * Vykona pokus o prechod do miestnosti urcenej danym smerom.
+     * Ak je tym smerom vychod, hrac prejde do novej miestnosti.
+     * Inak sa vypise chybova sprava do terminaloveho okna.
+     * @param prikaz
+     * @param hra
+     */
+    private void chodDoMiestnosti(Prikaz prikaz, Hra hra) {
+        if (!prikaz.maParameter()) {
+            // ak prikaz nema parameter - druhe slovo - nevedno kam ist
+            System.out.println("Chod kam?");
+            return;
+        }
+
+        String smer = prikaz.getParameter();
+
+        // Pokus o opustenie aktualnej miestnosti danym vychodom.
+        Miestnost novaMiestnost = hra.getAktualnaMiestnost().getMiestnostVSmere(smer);
+
+        if (novaMiestnost == null) {
+            System.out.println("Tam nie je vychod!");
+        } else {
+            hra.setAktualnaMiestnost(novaMiestnost);
+            novaMiestnost.vypisPopisMiestnosti();
+        }
+    }
+
+    /**
+     * Vypise text pomocnika do terminaloveho okna.
+     * Text obsahuje zoznam moznych prikazov.
+     */
+    private void vypisNapovedu() {
+        System.out.println("Zabludil si. Si sam. Tulas sa po fakulte.");
+        System.out.println();
+        System.out.println("Mozes pouzit tieto prikazy:");
+        System.out.println("   chod ukonci pomoc");
+    }
+
+    /**
+     * Ukonci hru.
+     * Skotroluje cely prikaz a zisti, ci je naozaj koniec hry.
+     * Prikaz ukoncenia nema parameter.
+     *
+     * @return true, ak prikaz konci hru, inak false.
+     * @param prikaz
+     */
+    private boolean ukonciHru(Prikaz prikaz) {
+        if (prikaz.maParameter()) {
+            System.out.println("Ukonci, co?");
+            return false;
+        } else {
+            return true;
+        }
+    }
+}

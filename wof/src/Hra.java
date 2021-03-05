@@ -20,6 +20,7 @@
  
 public class Hra  {
     private final Parser parser;
+    private final ZoznamPrikazov zoznamPrikazov;
     private Miestnost aktualnaMiestnost;
 
     /**
@@ -28,7 +29,8 @@ public class Hra  {
     public Hra() {
         Prostredie prostredie = new Prostredie();
         this.aktualnaMiestnost = prostredie.getStartovaciaMiestnost();
-        this.parser = new Parser();
+        this.zoznamPrikazov = new ZoznamPrikazov();
+        this.parser = new Parser(this.zoznamPrikazov);
     }
 
     /**
@@ -46,7 +48,7 @@ public class Hra  {
         
         do {
             Prikaz prikaz = this.parser.nacitajPrikaz();
-            jeKoniec = this.vykonajPrikaz(prikaz);
+            jeKoniec = this.zoznamPrikazov.vykonajPrikaz(prikaz, this);
         } while (!jeKoniec);
         
         System.out.println("Maj sa fajn!");
@@ -64,85 +66,11 @@ public class Hra  {
         this.aktualnaMiestnost.vypisPopisMiestnosti();
     }
 
-    /**
-     * Prevezne prikaz a vykona ho.
-     * 
-     * @param prikaz prikaz, ktory ma byt vykonany.
-     * @return true ak prikaz ukonci hru, inak vrati false.
-     */
-    private boolean vykonajPrikaz(Prikaz prikaz) {
-        if (prikaz.jeNeznamy()) {
-            System.out.println("Nerozumiem, co mas na mysli...");
-            return false;
-        }
-
-        String nazovPrikazu = prikaz.getNazov();
-        
-        switch (nazovPrikazu) {
-            case "pomoc":
-                this.vypisNapovedu();
-                return false;
-            case "chod":
-                this.chodDoMiestnosti(prikaz);
-                return false;
-            case "ukonci":
-                return this.ukonciHru(prikaz);
-            default:
-                return false;
-        }
+    public Miestnost getAktualnaMiestnost() {
+        return this.aktualnaMiestnost;
     }
 
-    // implementacie prikazov:
-
-    /**
-     * Vypise text pomocnika do terminaloveho okna.
-     * Text obsahuje zoznam moznych prikazov.
-     */
-    private void vypisNapovedu() {
-        System.out.println("Zabludil si. Si sam. Tulas sa po fakulte.");
-        System.out.println();
-        System.out.println("Mozes pouzit tieto prikazy:");
-        System.out.println("   chod ukonci pomoc");
-    }
-
-    /** 
-     * Vykona pokus o prechod do miestnosti urcenej danym smerom.
-     * Ak je tym smerom vychod, hrac prejde do novej miestnosti.
-     * Inak sa vypise chybova sprava do terminaloveho okna.
-     */
-    private void chodDoMiestnosti(Prikaz prikaz) {
-        if (!prikaz.maParameter()) {
-            // ak prikaz nema parameter - druhe slovo - nevedno kam ist
-            System.out.println("Chod kam?");
-            return;
-        }
-
-        String smer = prikaz.getParameter();
-
-        // Pokus o opustenie aktualnej miestnosti danym vychodom.
-        Miestnost novaMiestnost = this.aktualnaMiestnost.getMiestnostVSmere(smer);
-
-        if (novaMiestnost == null) {
-            System.out.println("Tam nie je vychod!");
-        } else {
-            this.aktualnaMiestnost = novaMiestnost;
-            this.aktualnaMiestnost.vypisPopisMiestnosti();
-        }
-    }
-
-    /**
-     * Ukonci hru.
-     * Skotroluje cely prikaz a zisti, ci je naozaj koniec hry.
-     * Prikaz ukoncenia nema parameter.
-     * 
-     * @return true, ak prikaz konci hru, inak false.
-     */
-    private boolean ukonciHru(Prikaz prikaz) {
-        if (prikaz.maParameter()) {
-            System.out.println("Ukonci, co?");
-            return false;
-        } else {
-            return true;
-        }
+    public void setAktualnaMiestnost(Miestnost aktualnaMiestnost) {
+        this.aktualnaMiestnost = aktualnaMiestnost;
     }
 }
