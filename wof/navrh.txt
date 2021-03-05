@@ -1,0 +1,47 @@
+dvere
+    - zamykatelne
+    - heslo
+    - kluc/isic v inych miestnostiach
+
+predmety
+    - kluc/isic
+    - inventar
+    - index
+    - zbrane
+        - knihy - hadzeme
+        - dezinfekcia
+    - rusko
+    - borovicka - zvysuje odolnost voci virusu - docasne
+        - transport na nahodnu lokaciu
+    - akcie:
+        - pouzitie
+        - zdvihnut
+        - polozit
+
+mena
+    - najom za internat
+
+doprava
+    - prevoz autobusom (kombinacie)
+
+charakteristiky hraca
+    - meno
+    - skore
+    - zivoty
+    - odolnost voci virusu
+
+npc - postavy mimo hraca
+    - prisery
+        - virus
+
+obchod
+    - bufet
+
+zmena opatreni
+    - po casovom intervale
+
+questy
+    - prezentacia z ekonomiky
+
+achievement
+    - jedz iba pizzu z bufetu
