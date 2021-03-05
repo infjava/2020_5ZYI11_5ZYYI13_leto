@@ -19,7 +19,7 @@ public class Parser {
 
     /**
      * Vytvori citac na citanie vstupov z terminaloveho okna.
-     * @param zoznamPrikazov
+     * @param zoznamPrikazov vykonavac prikazov
      */
     public Parser(ZoznamPrikazov zoznamPrikazov) {
         this.prikazy = zoznamPrikazov;
