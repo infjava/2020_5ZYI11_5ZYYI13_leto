@@ -34,7 +34,7 @@ public class ZoznamPrikazov {
      * Prevezne prikaz a vykona ho.
      *
      * @param prikaz prikaz, ktory ma byt vykonany.
-     * @param hra
+     * @param hra hra nad ktorou sa prikaz vykonava
      * @return true ak prikaz ukonci hru, inak vrati false.
      */
     boolean vykonajPrikaz(Prikaz prikaz, Hra hra) {
@@ -63,8 +63,8 @@ public class ZoznamPrikazov {
      * Vykona pokus o prechod do miestnosti urcenej danym smerom.
      * Ak je tym smerom vychod, hrac prejde do novej miestnosti.
      * Inak sa vypise chybova sprava do terminaloveho okna.
-     * @param prikaz
-     * @param hra
+     * @param prikaz prikaz na vykonanie
+     * @param hra hra nad ktorou sa prikaz vykonava
      */
     private void chodDoMiestnosti(Prikaz prikaz, Hra hra) {
         if (!prikaz.maParameter()) {
@@ -100,7 +100,7 @@ public class ZoznamPrikazov {
      * Prikaz ukoncenia nema parameter.
      *
      * @return true, ak prikaz konci hru, inak false.
-     * @param prikaz
+     * @param prikaz prikaz, ktory sa vykonava
      */
     private boolean ukonciHru(Prikaz prikaz) {
         if (prikaz.maParameter()) {
