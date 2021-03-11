@@ -15,7 +15,7 @@ import sk.uniza.fri.wof.hra.Hrac;
 public class ZoznamPrikazov {
     // konstantne pole nazvov prikazov
     private static final String[] PLATNE_PRIKAZY = {
-        "chod", "ukonci", "pomoc"
+        "chod", "ukonci", "pomoc", "hovor"
     };
 
     /**
@@ -58,6 +58,9 @@ public class ZoznamPrikazov {
                 return false;
             case "ukonci":
                 return this.ukonciHru(prikaz);
+            case "hovor":
+                this.hovorSNpc(prikaz, hrac);
+                return false;
             default:
                 return false;
         }
@@ -113,5 +116,9 @@ public class ZoznamPrikazov {
         } else {
             return true;
         }
+    }
+
+    private void hovorSNpc(Prikaz prikaz, Hrac hrac) {
+        System.out.printf("Hovoris s NPC %s%n", prikaz.getParameter());
     }
 }
