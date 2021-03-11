@@ -1,6 +1,7 @@
 package sk.uniza.fri.wof.prikazy;
 
 import sk.uniza.fri.wof.hra.Hrac;
+import sk.uniza.fri.wof.prostredie.Npc;
 
 /**
  * Trieda sk.uniza.fri.wof.prikazy.ZoznamPrikazov udrzuje zoznam nazvov platnych prikazov hry.
@@ -119,6 +120,11 @@ public class ZoznamPrikazov {
     }
 
     private void hovorSNpc(Prikaz prikaz, Hrac hrac) {
-        System.out.printf("Hovoris s NPC %s%n", prikaz.getParameter());
+        Npc npc = hrac.getAktualnaMiestnost().getNpc(prikaz.getParameter());
+        if (npc != null) {
+            npc.hovor();
+        } else {
+            System.out.printf("NPC %s sa nenaslo!%n", prikaz.getParameter());
+        }
     }
 }

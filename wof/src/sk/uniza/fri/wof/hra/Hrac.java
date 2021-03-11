@@ -10,6 +10,10 @@ public class Hrac {
         this.aktualnaMiestnost = prostredie.getStartovaciaMiestnost();
     }
 
+    public Miestnost getAktualnaMiestnost() {
+        return this.aktualnaMiestnost;
+    }
+
     public void vypisPopisAktualnejMiestnosti() {
         this.aktualnaMiestnost.vypisPopisMiestnosti();
     }

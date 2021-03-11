@@ -10,4 +10,8 @@ public class Npc {
     public String getMeno() {
         return this.meno;
     }
+
+    public void hovor() {
+        System.out.printf("Hovoris s NPC %s%n", this.meno);
+    }
 }
