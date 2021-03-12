@@ -6,7 +6,7 @@ public class NpcDialog {
     private final String replikaNpc;
     private final String[] replikyHraca;
 
-    public NpcDialog(String replikaNpc, String[] replikyHraca) {
+    public NpcDialog(String replikaNpc, String... replikyHraca) {
         this.replikaNpc = replikaNpc;
         this.replikyHraca = replikyHraca;
     }

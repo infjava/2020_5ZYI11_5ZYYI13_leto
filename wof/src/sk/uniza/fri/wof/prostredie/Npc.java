@@ -20,7 +20,7 @@ public class Npc {
                 System.out.println("Ahoj, ja som tu nejaka vratnicka. A ty si?");
                 System.out.print("> ");
                 vstup.nextLine();
-                NpcDialog uvod = new NpcDialog("Tak cau.", new String[] {"Ako sa mas?", "Nemas pre mna nejaku ulohu?"});
+                NpcDialog uvod = new NpcDialog("Tak cau.", "Ako sa mas?", "Nemas pre mna nejaku ulohu?");
                 switch (uvod.vykonaj()) {
                     case 1:
                         System.out.println("Vsetko ma boli, tak nezavadzaj");
