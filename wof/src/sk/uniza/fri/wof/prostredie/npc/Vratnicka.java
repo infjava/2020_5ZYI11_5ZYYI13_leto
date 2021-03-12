@@ -1,7 +1,5 @@
 package sk.uniza.fri.wof.prostredie.npc;
 
-import java.util.Scanner;
-
 public class Vratnicka implements INpc {
     @Override
     public String getMeno() {
@@ -10,10 +8,8 @@ public class Vratnicka implements INpc {
 
     @Override
     public void hovor() {
-        Scanner vstup = new Scanner(System.in);
-        System.out.println("Ahoj, ja som tu nejaka vratnicka. A ty si?");
-        System.out.print("> ");
-        vstup.nextLine();
+        NpcDialogVstup zadajMeno = new NpcDialogVstup("Ahoj, ja som tu nejaka vratnicka. A ty si?");
+        zadajMeno.vykonaj();
         NpcDialog uvod = new NpcDialog("Tak cau.", "Ako sa mas?", "Nemas pre mna nejaku ulohu?");
         switch (uvod.vykonaj()) {
             case 1:
