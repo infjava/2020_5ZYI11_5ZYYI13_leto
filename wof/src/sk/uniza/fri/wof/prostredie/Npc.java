@@ -20,19 +20,15 @@ public class Npc {
                 System.out.println("Ahoj, ja som tu nejaka vratnicka. A ty si?");
                 System.out.print("> ");
                 vstup.nextLine();
-                System.out.println("Tak cau.");
-                System.out.println("1. Ako sa mas?");
-                System.out.println("2. Nemas pre mna nejaku ulohu?");
-                System.out.println("0. Ukoncit rozhovor");
-                System.out.print("Vyber moznost > ");
-                switch (vstup.nextLine()) {
-                    case "1":
+                NpcDialog uvod = new NpcDialog("Tak cau.", new String[] {"Ako sa mas?", "Nemas pre mna nejaku ulohu?"});
+                switch (uvod.vykonaj()) {
+                    case 1:
                         System.out.println("Vsetko ma boli, tak nezavadzaj");
                         System.out.println("0. Ukonci rozhovor");
                         System.out.print("Vyber moznost > ");
                         vstup.nextLine();
                         break;
-                    case "2":
+                    case 2:
                         System.out.println("Tak ja neviem, dones mi aspirin.");
                         System.out.println("1. Lekarne zavreli kvoli covid");
                         System.out.println("2. Skusim nejaky najst");
