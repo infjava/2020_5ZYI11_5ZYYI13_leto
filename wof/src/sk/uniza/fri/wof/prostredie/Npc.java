@@ -23,39 +23,27 @@ public class Npc {
                 NpcDialog uvod = new NpcDialog("Tak cau.", "Ako sa mas?", "Nemas pre mna nejaku ulohu?");
                 switch (uvod.vykonaj()) {
                     case 1:
-                        System.out.println("Vsetko ma boli, tak nezavadzaj");
-                        System.out.println("0. Ukonci rozhovor");
-                        System.out.print("Vyber moznost > ");
-                        vstup.nextLine();
+                        NpcDialog vsetkoMaBoli = new NpcDialog("Vsetko ma boli, tak nezavadzaj.");
+                        vsetkoMaBoli.vykonaj();
                         break;
                     case 2:
-                        System.out.println("Tak ja neviem, dones mi aspirin.");
-                        System.out.println("1. Lekarne zavreli kvoli covid");
-                        System.out.println("2. Skusim nejaky najst");
-                        System.out.println("0. Ukonci rozhovor");
-                        System.out.print("Vyber moznost > ");
-                        switch (vstup.nextLine()) {
-                            case "1":
-                                System.out.println("Joj, tak padaj prec.");
-                                System.out.println("0. Ukonci rozhovor");
-                                System.out.print("Vyber moznost > ");
-                                vstup.nextLine();
+                        NpcDialog donesAspirin = new NpcDialog("Tak ja neviem, dones mi aspirin.", "Lekarne zavreli kvoli covid", "Skusim nejaky najst");
+                        switch (donesAspirin.vykonaj()) {
+                            case 1:
+                                NpcDialog padajPrec = new NpcDialog("Joj, tak padaj prec.");
+                                padajPrec.vykonaj();
                                 break;
-                            case "2":
-                                System.out.println("Ach to budes zlaty.");
-                                System.out.println("0. Ukonci rozhovor");
-                                System.out.print("Vyber moznost > ");
-                                vstup.nextLine();
+                            case 2:
+                                NpcDialog zlaty = new NpcDialog("Ach to budes zlaty.");
+                                zlaty.vykonaj();
                                 break;
                         }
                         break;
                 }
                 break;
             case "bufetarka":
-                System.out.println("Zatial nemas naprogramovane predmety, tak sa s tebou nebavim");
-                System.out.println("0. Ukonci rozhovor");
-                System.out.print("Vyber moznost > ");
-                vstup.nextLine();
+                NpcDialog doprogramuj = new NpcDialog("Zatial nemas naprogramovane predmety, tak sa s tebou nebavim");
+                doprogramuj.vykonaj();
                 break;
         }
     }
