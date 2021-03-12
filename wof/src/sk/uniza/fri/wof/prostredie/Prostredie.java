@@ -39,6 +39,7 @@ public class Prostredie {
         vestibula.nastavVychod("juh", chodbaB);
 
         vestibula.postavNpc(new Npc("vratnicka"));
+        vestibula.postavNpc(new Npc("bufetarka"));
 
         ic.nastavVychod("zapad", vestibula);
 
