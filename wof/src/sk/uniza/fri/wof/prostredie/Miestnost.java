@@ -1,5 +1,7 @@
 package sk.uniza.fri.wof.prostredie;
 
+import sk.uniza.fri.wof.prostredie.npc.INpc;
+
 import java.util.TreeMap;
 
 /**

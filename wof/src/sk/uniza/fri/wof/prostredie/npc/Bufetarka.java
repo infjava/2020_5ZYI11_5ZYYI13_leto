@@ -1,4 +1,4 @@
-package sk.uniza.fri.wof.prostredie;
+package sk.uniza.fri.wof.prostredie.npc;
 
 public class Bufetarka implements INpc {
     @Override

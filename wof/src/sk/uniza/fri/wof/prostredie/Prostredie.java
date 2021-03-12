@@ -1,5 +1,8 @@
 package sk.uniza.fri.wof.prostredie;
 
+import sk.uniza.fri.wof.prostredie.npc.Bufetarka;
+import sk.uniza.fri.wof.prostredie.npc.Vratnicka;
+
 public class Prostredie {
     private final Miestnost startovaciaMiestnost;
 

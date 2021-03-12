@@ -1,7 +1,7 @@
 package sk.uniza.fri.wof.prikazy;
 
 import sk.uniza.fri.wof.hra.Hrac;
-import sk.uniza.fri.wof.prostredie.INpc;
+import sk.uniza.fri.wof.prostredie.npc.INpc;
 
 /**
  * Trieda sk.uniza.fri.wof.prikazy.ZoznamPrikazov udrzuje zoznam nazvov platnych prikazov hry.
